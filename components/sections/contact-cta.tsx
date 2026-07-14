@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { ArrowRight, CalendarDays } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function ContactCta() {
+  return <section className="bg-white py-20 sm:py-28"><div className="container-shell"><div className="relative overflow-hidden rounded-[34px] bg-navy px-6 py-14 text-center text-white sm:px-12 sm:py-18"><div className="page-grid absolute inset-0 opacity-30" /><div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-blue-600/25 blur-3xl" /><div className="absolute -bottom-24 -right-20 h-72 w-72 rounded-full bg-cyan-400/15 blur-3xl" /><div className="relative mx-auto max-w-3xl"><p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-200">Have a serious project or role?</p><h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.05em] text-balance sm:text-6xl">Let’s turn the requirement into a clear, production-ready result.</h2><p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300">Share the scope, timeline, current blockers, and expected outcome. You’ll receive a structured response focused on the right next step.</p><div className="mt-9 flex flex-wrap justify-center gap-3"><Button asChild size="lg"><Link href="/contact">Hire Me <ArrowRight className="h-4 w-4" /></Link></Button><Button asChild size="lg" variant="dark"><Link href="/contact#contact-form"><CalendarDays className="h-4 w-4" /> Schedule a meeting</Link></Button></div></div></div></div></section>;
+}

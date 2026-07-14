@@ -1,0 +1,12 @@
+import { PageHero } from "@/components/ui/page-hero";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { skillGroups } from "@/data/skills";
+import { ContactCta } from "@/components/sections/contact-cta";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { createMetadata } from "@/lib/seo";
+
+export const metadata = createMetadata("Skills", "A detailed skill dashboard covering frontend, backend, WordPress, WooCommerce, databases, programming, tools, and soft skills.", "/skills");
+
+export default function SkillsPage() {
+  return <><BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Skills", path: "/skills" }]} /><PageHero eyebrow="Technical capabilities" title="A practical skill dashboard for modern web delivery." description="Capability levels show relative working confidence and are intended as a transparent overview—not a substitute for project evidence." /><section className="section-space bg-white"><div className="container-shell"><SectionHeading eyebrow="Capability map" title="Depth in WordPress and frontend delivery, supported by full stack engineering." description="Each group combines implementation ability with attention to usability, maintainability, and production constraints." /><div className="mt-12 grid gap-6 lg:grid-cols-2">{skillGroups.map((group) => <article key={group.title} className="rounded-[26px] border border-slate-200 bg-surface p-7 sm:p-8"><div className="flex items-end justify-between gap-4"><div><h2 className="font-display text-2xl font-bold text-navy">{group.title}</h2><p className="mt-2 max-w-xl text-sm leading-7 text-slate-600">{group.description}</p></div><div className="hidden h-14 w-14 place-items-center rounded-full border-[6px] border-blue-100 text-xs font-bold text-brand sm:grid">{Math.round(group.skills.reduce((sum, item) => sum + item.level, 0) / group.skills.length)}%</div></div><div className="mt-8 grid gap-5 sm:grid-cols-2">{group.skills.map((skill) => <div key={skill.name}><div className="mb-2 flex items-center justify-between text-sm"><span className="font-semibold text-slate-700">{skill.name}</span><span className="font-bold text-brand">{skill.level}%</span></div><div className="h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-400" style={{ width: `${skill.level}%` }} /></div></div>)}</div></article>)}</div></div></section><ContactCta /></>;
+}

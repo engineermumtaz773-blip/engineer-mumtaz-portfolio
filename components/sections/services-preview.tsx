@@ -1,0 +1,9 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { services } from "@/data/services";
+import { Reveal } from "@/components/shared/reveal";
+
+export function ServicesPreview() {
+  return <section className="section-space bg-surface"><div className="container-shell"><SectionHeading eyebrow="Services" title="Engineering services designed around outcomes, not deliverables." description="From a focused landing page to a full application or WooCommerce workflow, every engagement is structured around clarity, quality, and sustainable implementation." /><div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{services.slice(0, 6).map((service, index) => { const Icon = service.icon; return <Reveal key={service.title} delay={index * 0.04}><Link href="/services" className="group block h-full rounded-[24px] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-[var(--shadow-card)]"><div className="flex items-start justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-brand"><Icon className="h-5 w-5" /></span><ArrowUpRight className="h-5 w-5 text-slate-300 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" /></div><h3 className="mt-6 font-display text-xl font-bold tracking-[-0.035em] text-navy">{service.title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{service.description}</p><div className="mt-5 flex flex-wrap gap-2">{service.stack.slice(0, 3).map((item) => <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold text-slate-500">{item}</span>)}</div></Link></Reveal>; })}</div></div></section>;
+}
