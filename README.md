@@ -21,8 +21,17 @@ Open `http://localhost:3000`.
 6. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
 
 ## Contact form
+## Contact form
 
-The API route validates input with Zod. When Resend variables are configured, it sends the message to `CONTACT_TO_EMAIL`. Without mail configuration, it returns a clear service-unavailable response rather than silently losing leads.
+The API route validates input with Zod. When Resend environment variables are configured, the route sends the message via Resend.
+
+Required environment variables (set in Vercel):
+
+- `RESEND_API_KEY` — Resend API key used to authenticate requests.
+- `RESEND_FROM` — Sender email address.
+- `RESEND_TO` — Recipient email address.
+
+This project uses the standard Resend environment variable names. Ensure `RESEND_API_KEY`, `RESEND_FROM`, and `RESEND_TO` are set in Vercel for both Preview and Production deployments. If the required environment variables are missing, the API returns HTTP 503 with a clear configuration message instead of silently discarding messages.
 
 ## Deployment
 

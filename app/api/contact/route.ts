@@ -2,16 +2,40 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/validations";
 
+const getEnvValue = (key: string) => process.env[key]?.trim() ?? "";
+
+// Environment presence checks removed for production readiness.
+
 export async function POST(request: Request) {
   try {
     const body: unknown = await request.json();
     const parsed = contactSchema.safeParse(body);
     if (!parsed.success) return NextResponse.json({ message: "Please review the form fields and try again.", errors: parsed.error.flatten().fieldErrors }, { status: 400 });
     if (parsed.data.website) return NextResponse.json({ message: "Message received." });
-    const apiKey = process.env.RESEND_API_KEY;
-    const to = process.env.CONTACT_TO_EMAIL;
-    const from = process.env.CONTACT_FROM_EMAIL;
-    if (!apiKey || !to || !from) return NextResponse.json({ message: "The contact service is not configured yet. Add the Resend environment variables before launch." }, { status: 503 });
+    const apiKey = getEnvValue("RESEND_API_KEY");
+    // Use standard Resend environment variable names
+    const to = getEnvValue("RESEND_TO");
+    const from = getEnvValue("RESEND_FROM");
+
+    
+
+    const missingEnvVars = [
+      !apiKey ? "RESEND_API_KEY" : null,
+      !to ? "RESEND_TO" : null,
+      !from ? "RESEND_FROM" : null
+    ].filter((value): value is string => Boolean(value));
+
+    if (missingEnvVars.length > 0) {
+      return NextResponse.json(
+        {
+          message: "The contact service is not configured yet.",
+          missing: missingEnvVars,
+          details: `Missing environment variable${missingEnvVars.length > 1 ? "s" : ""}: ${missingEnvVars.join(", ")}`
+        },
+        { status: 503 }
+      );
+    }
+
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from,
