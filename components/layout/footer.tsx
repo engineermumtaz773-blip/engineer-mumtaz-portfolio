@@ -4,6 +4,14 @@ import { navItems, siteConfig } from "@/data/site";
 import { services } from "@/data/services";
 
 export function Footer() {
+  // Define your external links here if they aren't coming correctly from siteConfig
+  const socialProfiles = [
+    { icon: Github, label: "GitHub", href: "https://github.com/engineermumtaz773-blip/engineer-mumtaz-portfolio" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/engineer-mumtaz" },
+    { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/923040537000" },
+    { icon: Mail, label: "Email", href: "mailto:engineermumtaz773@gmail.com" },
+  ];
+
   return (
     <footer className="bg-navy text-white">
       <div className="container-shell grid gap-12 border-b border-white/10 py-16 lg:grid-cols-[1.3fr_.8fr_1fr_1fr]">
@@ -14,11 +22,21 @@ export function Footer() {
           </Link>
           <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">{siteConfig.description}</p>
           <div className="mt-6 flex gap-2">
-            {[{ icon: Github, label: "GitHub", href: siteConfig.social.github }, { icon: Linkedin, label: "LinkedIn", href: siteConfig.social.linkedin }, { icon: MessageCircle, label: "WhatsApp", href: siteConfig.social.whatsapp }, { icon: Mail, label: "Email", href: siteConfig.social.email }].map(({ icon: Icon, label, href }) => (
-              <Link key={label} href={href} aria-label={label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:border-blue-400/40 hover:bg-blue-500/15 hover:text-white"><Icon className="h-4 w-4" /></Link>
+            {socialProfiles.map(({ icon: Icon, label, href }) => (
+              <a 
+                key={label} 
+                href={href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label={label} 
+                className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:border-blue-400/40 hover:bg-blue-500/15 hover:text-white"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
             ))}
           </div>
         </div>
+        {/* ... baqi footer ka code same rahega ... */}
         <div>
           <h2 className="font-display font-bold">Quick links</h2>
           <ul className="mt-5 space-y-3 text-sm text-slate-400">
