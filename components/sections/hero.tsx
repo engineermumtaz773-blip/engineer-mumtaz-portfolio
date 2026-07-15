@@ -44,8 +44,7 @@ export function Hero() {
       <div className="page-grid absolute inset-0 opacity-40" aria-hidden="true" />
       <m.div className="absolute left-[8%] top-[18%] h-72 w-72 rounded-full bg-blue-600/22 blur-[110px]" animate={{ scale: [1, 1.18, 1], x: [0, 30, 0] }} transition={{ duration: 10, repeat: Infinity }} aria-hidden="true" />
       <m.div className="absolute bottom-[8%] right-[7%] h-96 w-96 rounded-full bg-cyan-500/15 blur-[120px]" animate={{ scale: [1.1, 0.95, 1.1], y: [0, -25, 0] }} transition={{ duration: 12, repeat: Infinity }} aria-hidden="true" />
-      {Array.from({ length: 14 }).map((_, index) => <span key={index} className="absolute h-1 w-1 rounded-full bg-cyan-200/50" style={{ left: `${7 + ((index * 17) % 88)}%`, top: `${12 + ((index * 23) % 76)}%`, animation: `pulse-dot ${3 + (index % 4)}s ease-in-out ${index * 0.2}s infinite` }} aria-hidden="true" />)}
-
+      
       <div className="container-shell relative grid items-center gap-16 lg:grid-cols-[1.08fr_.92fr]">
         <div>
           <m.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-cyan-200 backdrop-blur">
@@ -57,17 +56,25 @@ export function Hero() {
           </m.h1>
           <m.p className="mt-7 min-h-8 font-display text-xl font-semibold sm:text-2xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}><TypingTitle /></m.p>
           <m.p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">I build production-ready web applications, WordPress systems, WooCommerce experiences, and responsive interfaces for international clients, product teams, and growing businesses.</m.p>
+          
           <m.div className="mt-9 flex flex-wrap gap-3" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}>
             <Button asChild size="lg"><Link href="/contact">Hire Me <ArrowRight className="h-4 w-4" /></Link></Button>
             <Button asChild size="lg" variant="dark"><Link href="/projects">View Projects</Link></Button>
             <Button asChild size="lg" variant="dark"><a href="/resume/Engineer-Mumtaz-Ali-Resume.pdf" download>Download CV <Download className="h-4 w-4" /></a></Button>
           </m.div>
+
+          {/* Social Connect Section - UPDATED */}
           <m.div className="mt-9 flex items-center gap-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
             <span className="mr-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Connect</span>
-            {[{ icon: Github, label: "GitHub", href: siteConfig.social.github }, { icon: Linkedin, label: "LinkedIn", href: siteConfig.social.linkedin }, { icon: MessageCircle, label: "WhatsApp", href: siteConfig.social.whatsapp }, { icon: Mail, label: "Email", href: siteConfig.social.email }].map(({ icon: Icon, label, href }) => <Link key={label} href={href} aria-label={label} className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Icon className="h-4 w-4" /></Link>)}
+            
+            <a href="https://github.com/engineermumtaz773-blip/engineer-mumtaz-portfolio" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Github className="h-4 w-4" /></a>
+            <a href="https://linkedin.com/in/engineer-mumtaz" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Linkedin className="h-4 w-4" /></a>
+            <a href="https://wa.me/923040537000" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><MessageCircle className="h-4 w-4" /></a>
+            <a href="mailto:engineermumtaz773@gmail.com" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Mail className="h-4 w-4" /></a>
           </m.div>
         </div>
 
+        {/* Hero Image Section */}
         <m.div className="relative mx-auto w-full max-w-[520px] perspective-[1200px]" style={{ rotateX, rotateY }}>
           <div className="absolute -inset-7 rounded-[44px] bg-gradient-to-br from-blue-500/24 to-cyan-400/10 blur-2xl" aria-hidden="true" />
           <div className="glass-panel relative overflow-hidden rounded-[36px] p-3">
@@ -78,11 +85,8 @@ export function Hero() {
               </div>
             </div>
           </div>
-          <m.div className="absolute -left-9 top-16 hidden rounded-2xl border border-white/12 bg-slate-950/78 p-4 shadow-2xl backdrop-blur-xl sm:block" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}><p className="text-xs text-slate-400">Core focus</p><p className="mt-1 font-display font-bold">Scalable systems</p></m.div>
-          <m.div className="absolute -right-7 bottom-24 hidden rounded-2xl border border-white/12 bg-slate-950/78 p-4 shadow-2xl backdrop-blur-xl sm:block" animate={{ y: [0, 12, 0] }} transition={{ duration: 6, repeat: Infinity }}><p className="text-xs text-slate-400">Delivery standard</p><p className="mt-1 font-display font-bold text-cyan-200">Responsive · Accessible</p></m.div>
         </m.div>
       </div>
-      <Link href="#trusted" aria-label="Scroll to next section" className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500 lg:flex">Scroll <ArrowDown className="h-4 w-4 animate-bounce" /></Link>
     </section>
   );
 }
