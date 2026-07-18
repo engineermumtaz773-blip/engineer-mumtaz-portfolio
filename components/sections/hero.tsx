@@ -49,9 +49,12 @@ export function Hero() {
             <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" /></span>
             {siteConfig.availability}
           </m.div>
-          <m.h1 className="mt-7 max-w-4xl font-display text-[clamp(3.35rem,7vw,6.8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-balance" initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.08 }}>
+
+          {/* Heading Fix: Responsive font size */}
+          <m.h1 className="mt-7 max-w-4xl font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.03em]" initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.08 }}>
             Engineering digital products that feel <span className="text-white/45">clear, fast, and dependable.</span>
           </m.h1>
+
           <m.p className="mt-7 min-h-8 font-display text-xl font-semibold sm:text-2xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}><TypingTitle /></m.p>
           <m.p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">I build production-ready web applications, WordPress systems, WooCommerce experiences, and responsive interfaces for international clients, product teams, and growing businesses.</m.p>
           
@@ -61,19 +64,19 @@ export function Hero() {
             <Button asChild size="lg" variant="dark"><a href="/resume/Engineer-Mumtaz-Ali-Resume.pdf" download>Download CV <Download className="h-4 w-4" /></a></Button>
           </m.div>
 
-          {/* Social Connect Section - Fixed Layout */}
+          {/* Social Icons Fix: Colors and Links */}
           <div className="mt-12 flex items-center gap-4">
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Connect</span>
             <div className="flex gap-3">
-                <a href="https://github.com/engineermumtaz773-blip/engineer-mumtaz-portfolio" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Github className="h-4 w-4" /></a>
-                <a href="https://linkedin.com/in/engineer-mumtaz" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Linkedin className="h-4 w-4" /></a>
-                <a href="https://wa.me/923040537000" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><MessageCircle className="h-4 w-4" /></a>
-                <a href="mailto:engineermumtaz773@gmail.com" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white"><Mail className="h-4 w-4" /></a>
+                <a href="https://github.com/engineermumtaz773-blip/engineer-mumtaz-portfolio" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/5 text-white transition hover:bg-white hover:text-navy"><Github className="h-5 w-5" /></a>
+                <a href="https://linkedin.com/in/engineer-mumtaz" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 transition hover:bg-blue-600 hover:text-white"><Linkedin className="h-5 w-5" /></a>
+                <a href="https://wa.me/923040537000" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 transition hover:bg-emerald-500 hover:text-white"><MessageCircle className="h-5 w-5" /></a>
+                {/* Email link changed to /contact */}
+                <Link href="/contact" className="grid h-10 w-10 place-items-center rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 transition hover:bg-orange-500 hover:text-white"><Mail className="h-5 w-5" /></Link>
             </div>
           </div>
         </div>
 
-        {/* Hero Image Section */}
         <m.div className="relative mx-auto w-full max-w-[520px] perspective-[1200px]" style={{ rotateX, rotateY }}>
           <div className="glass-panel relative overflow-hidden rounded-[36px] p-3">
              <div className="relative aspect-[4/5] overflow-hidden rounded-[29px] bg-slate-900">
