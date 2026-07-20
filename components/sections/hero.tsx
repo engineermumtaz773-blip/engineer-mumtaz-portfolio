@@ -141,13 +141,13 @@ export function Hero() {
             className={`relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] rounded-full p-1.5 bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur-xl transition-all duration-500 ${isHovered ? 'shadow-[0_0_60px_rgba(34,211,238,0.5)] scale-[1.02]' : ''}`}
           >
             <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-900 border-4 border-navy">
-               {/* Default Profile Image from public/mumtaz/ */}
+               {/* Default profile image from the public root */}
                <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
-                 <Image src="/mumtaz/mumtaz-profile.jpg" alt="Engineer Mumtaz Ali" fill priority className="object-cover" />
+                 <Image src="/mumtaz-profilo.jpg" alt="Engineer Mumtaz Ali" fill priority className="object-cover" />
                </div>
-               {/* Hover Profile Image from public/images/ */}
+               {/* Hover profile image from the public images folder */}
                <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
-                 <Image src="/images/profile2.png" alt="Engineer Mumtaz Ali Hover" fill priority className="object-cover" />
+                 <Image src="/images/profile.svg" alt="Engineer Mumtaz Ali Hover" fill priority className="object-cover" />
                </div>
             </div>
           </m.div>
