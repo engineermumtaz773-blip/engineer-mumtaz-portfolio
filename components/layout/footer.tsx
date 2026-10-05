@@ -8,8 +8,11 @@ export function Footer() {
     <footer className="relative isolate bg-navy text-white border-t border-white/10">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <div className="footer-particles absolute -inset-[12%]" />
+        <div className="footer-glow footer-glow-one absolute -left-[12%] -top-[34%] h-[34rem] w-[34rem] rounded-full" />
+        <div className="footer-glow footer-glow-two absolute -right-[12%] -bottom-[42%] h-[38rem] w-[38rem] rounded-full" />
         <div className="footer-wave absolute -bottom-[58%] -left-[20%] h-[135%] w-[140%] rounded-[50%] border-t border-cyan-200/10 bg-gradient-to-t from-cyan-400/[0.045] via-cyan-300/[0.018] to-transparent" />
         <div className="footer-wave footer-wave-delayed absolute -bottom-[76%] -left-[12%] h-[140%] w-[124%] rounded-[50%] border-t border-indigo-200/[0.08] bg-gradient-to-t from-indigo-400/[0.035] via-indigo-300/[0.012] to-transparent" />
+        <div className="footer-sweep absolute inset-x-0 bottom-[12%] h-px" />
       </div>
       <div className="container-shell relative z-10 grid gap-12 py-16 lg:grid-cols-[1.3fr_.8fr_1fr_1fr]">
         <div>
