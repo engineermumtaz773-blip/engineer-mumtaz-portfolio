@@ -36,8 +36,8 @@ export function Hero() {
   const y = useMotionValue(0);
   const smoothX = useSpring(x, { stiffness: 80, damping: 20 });
   const smoothY = useSpring(y, { stiffness: 80, damping: 20 });
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], [5, -5]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-6, 6]);
+  const glowX = useTransform(smoothX, [-0.5, 0.5], [-28, 28]);
+  const glowY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -47,6 +47,7 @@ export function Hero() {
       {/* Complete Background Animation with rich multi-color aurora mesh, glowing orbs & particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         <div className="page-grid absolute inset-0 opacity-40" />
+        <m.div aria-hidden="true" style={{ x: glowX, y: glowY }} className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[100px]" />
         
         {/* Multi-color shifting background gradients */}
         <div className="absolute -top-[50%] -left-[30%] w-[110vw] h-[110vw] rounded-full bg-gradient-to-tr from-cyan-600/30 via-indigo-600/25 to-fuchsia-600/30 blur-[140px] animate-pulse duration-1000" />
@@ -121,7 +122,7 @@ export function Hero() {
         </div>
 
         {/* Right Side: Circular Profile Image from public/mumtaz/ folder with Hover Crossfade from public/images/ */}
-        <m.div className="relative mx-auto w-full max-w-[520px] perspective-[1200px] flex items-center justify-center py-10" style={{ rotateX, rotateY }}>
+        <div className="relative mx-auto w-full max-w-[520px] perspective-[1200px] flex items-center justify-center py-10">
           <m.div
             aria-hidden="true"
             animate={{ y: [0, -7, 0], scale: [1, 1.1, 1], opacity: [0.55, 0.85, 0.55] }}
@@ -139,25 +140,23 @@ export function Hero() {
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_12px_#c084fc]" />
           </div>
 
-          <m.div 
-            animate={{ y: [-10, 10, -10] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`relative flex h-[312px] w-[312px] shrink-0 items-center justify-center rounded-full p-1.5 md:h-[372px] md:w-[372px] bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur-xl transition-all duration-500 ${isHovered ? 'shadow-[0_0_60px_rgba(34,211,238,0.5)] scale-[1.02]' : ''}`}
+            className="relative flex h-[312px] w-[312px] shrink-0 items-center justify-center rounded-full p-1.5 md:h-[372px] md:w-[372px] bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur-xl"
           >
             <div className="relative flex h-[300px] w-[300px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-900 border-4 border-navy md:h-[360px] md:w-[360px]">
                {/* Default profile image from the public root */}
-               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
+               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
                  <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="absolute inset-0 w-full h-full object-cover object-center rounded-full" />
                </div>
                {/* Hover profile image from the public images folder */}
-               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
+               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                  <Image src="/images/hero-profile-blue.jpg" alt="Engineer Mumtaz Ali in a blue shirt" fill priority className="absolute inset-0 w-full h-full object-cover object-center rounded-full" />
                </div>
             </div>
-          </m.div>
-        </m.div>
+          </div>
+        </div>
 
       </div>
     </section>
