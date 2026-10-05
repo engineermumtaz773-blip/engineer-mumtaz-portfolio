@@ -144,12 +144,12 @@ export function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] rounded-full p-1.5 bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur-xl transition-all duration-500 ${isHovered ? 'shadow-[0_0_60px_rgba(34,211,238,0.5)] scale-[1.02]' : ''}`}
+            className={`relative flex h-[292px] w-[292px] items-center justify-center rounded-full p-1.5 md:h-[352px] md:w-[352px] bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur-xl transition-all duration-500 ${isHovered ? 'shadow-[0_0_60px_rgba(34,211,238,0.5)] scale-[1.02]' : ''}`}
           >
-            <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-900 border-4 border-navy">
+            <div className="relative flex h-[280px] w-[280px] items-center justify-center overflow-hidden rounded-full bg-slate-900 border-4 border-navy md:h-[340px] md:w-[340px]">
                {/* Default profile image from the public root */}
                <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-[opacity,transform] duration-[400ms] ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
-                 <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="h-full w-full rounded-full object-cover" />
+                 <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="absolute inset-0 h-full w-full rounded-full object-cover object-center" />
                </div>
                {/* Hover profile image from the public images folder */}
                <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-[opacity,transform] duration-[400ms] ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
