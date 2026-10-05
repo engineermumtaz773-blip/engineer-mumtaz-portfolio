@@ -38,6 +38,12 @@ export function Hero() {
   const smoothY = useSpring(y, { stiffness: 80, damping: 20 });
   const glowX = useTransform(smoothX, [-0.5, 0.5], [-28, 28]);
   const glowY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
+  const particleX = useTransform(smoothX, [-0.5, 0.5], [-70, 70]);
+  const particleY = useTransform(smoothY, [-0.5, 0.5], [-52, 52]);
+  const particleTwoX = useTransform(particleX, (value) => value * -0.7);
+  const particleTwoY = useTransform(particleY, (value) => value * 0.55);
+  const particleThreeX = useTransform(particleX, (value) => value * 0.45);
+  const particleThreeY = useTransform(particleY, (value) => value * -0.8);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -48,6 +54,9 @@ export function Hero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         <div className="page-grid absolute inset-0 opacity-40" />
         <m.div aria-hidden="true" style={{ x: glowX, y: glowY }} className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[100px]" />
+        <m.div aria-hidden="true" style={{ x: particleX, y: particleY }} className="absolute left-[18%] top-[24%] h-2 w-2 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.9)]" />
+        <m.div aria-hidden="true" style={{ x: particleTwoX, y: particleTwoY }} className="absolute right-[22%] top-[38%] h-1.5 w-1.5 rounded-full bg-blue-200 shadow-[0_0_16px_rgba(147,197,253,0.9)]" />
+        <m.div aria-hidden="true" style={{ x: particleThreeX, y: particleThreeY }} className="absolute left-[38%] bottom-[22%] h-1.5 w-1.5 rounded-full bg-fuchsia-200 shadow-[0_0_16px_rgba(244,114,182,0.8)]" />
         
         {/* Multi-color shifting background gradients */}
         <div className="absolute -top-[50%] -left-[30%] w-[110vw] h-[110vw] rounded-full bg-gradient-to-tr from-cyan-600/30 via-indigo-600/25 to-fuchsia-600/30 blur-[140px] animate-pulse duration-1000" />
