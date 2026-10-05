@@ -122,6 +122,12 @@ export function Hero() {
 
         {/* Right Side: Circular Profile Image from public/mumtaz/ folder with Hover Crossfade from public/images/ */}
         <m.div className="relative mx-auto w-full max-w-[520px] perspective-[1200px] flex items-center justify-center py-10" style={{ rotateX, rotateY }}>
+          <m.div
+            aria-hidden="true"
+            animate={{ y: [0, -7, 0], scale: [1, 1.1, 1], opacity: [0.55, 0.85, 0.55] }}
+            transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+            className="pointer-events-none absolute left-[calc(50%+125px)] top-[calc(50%-150px)] z-10 h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_16px_#67e8f9] sm:left-[calc(50%+165px)] sm:top-[calc(50%-190px)]"
+          />
           
           <div className="absolute w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] rounded-full border border-cyan-500/20 animate-[spin_20s_linear_infinite] pointer-events-none" />
           <div className="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] rounded-full border border-dashed border-indigo-500/30 animate-[spin_30s_linear_infinite_reverse] pointer-events-none" />
@@ -142,12 +148,12 @@ export function Hero() {
           >
             <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-900 border-4 border-navy">
                {/* Default profile image from the public root */}
-               <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
-                 <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="object-cover" />
+               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-[opacity,transform] duration-[400ms] ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
+                 <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="h-full w-full rounded-full object-cover" />
                </div>
                {/* Hover profile image from the public images folder */}
-               <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
-                 <Image src="/images/hero-profile-blue.jpg" alt="Engineer Mumtaz Ali in a blue shirt" fill priority className="object-cover" />
+               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-[opacity,transform] duration-[400ms] ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
+                 <Image src="/images/hero-profile-blue.jpg" alt="Engineer Mumtaz Ali in a blue shirt" fill priority className="h-full w-full rounded-full object-cover" />
                </div>
             </div>
           </m.div>
