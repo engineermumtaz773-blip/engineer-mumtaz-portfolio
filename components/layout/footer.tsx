@@ -5,8 +5,13 @@ import { services } from "@/data/services";
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white border-t border-white/10">
-      <div className="container-shell grid gap-12 py-16 lg:grid-cols-[1.3fr_.8fr_1fr_1fr]">
+    <footer className="relative isolate bg-navy text-white border-t border-white/10">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="footer-particles absolute -inset-[12%]" />
+        <div className="footer-wave absolute -bottom-[58%] -left-[20%] h-[135%] w-[140%] rounded-[50%] border-t border-cyan-200/10 bg-gradient-to-t from-cyan-400/[0.045] via-cyan-300/[0.018] to-transparent" />
+        <div className="footer-wave footer-wave-delayed absolute -bottom-[76%] -left-[12%] h-[140%] w-[124%] rounded-[50%] border-t border-indigo-200/[0.08] bg-gradient-to-t from-indigo-400/[0.035] via-indigo-300/[0.012] to-transparent" />
+      </div>
+      <div className="container-shell relative z-10 grid gap-12 py-16 lg:grid-cols-[1.3fr_.8fr_1fr_1fr]">
         <div>
           <Link href="/" className="flex items-center gap-3 font-display text-xl font-bold">
             <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-sm font-black">MA</span>
