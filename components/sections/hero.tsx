@@ -148,12 +148,12 @@ export function Hero() {
           >
             <div className="relative flex h-[280px] w-[280px] items-center justify-center overflow-hidden rounded-full bg-slate-900 border-4 border-navy md:h-[340px] md:w-[340px]">
                {/* Default profile image from the public root */}
-               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-[opacity,transform] duration-[400ms] ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
+               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
                  <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="absolute inset-0 h-full w-full rounded-full object-cover object-center" />
                </div>
                {/* Hover profile image from the public images folder */}
-               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-[opacity,transform] duration-[400ms] ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
-                 <Image src="/images/hero-profile-blue.jpg" alt="Engineer Mumtaz Ali in a blue shirt" fill priority className="h-full w-full rounded-full object-cover" />
+               <div className={`absolute inset-0 h-full w-full overflow-hidden rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
+                 <Image src="/images/hero-profile-blue.jpg" alt="Engineer Mumtaz Ali in a blue shirt" fill priority className="absolute inset-0 h-full w-full rounded-full object-cover object-center" />
                </div>
             </div>
           </m.div>
