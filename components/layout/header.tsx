@@ -37,7 +37,7 @@ export function Header() {
           {navItems.map((item) => {
             const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
-              <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={cn("rounded-full px-3 py-2 text-[13px] font-semibold transition-all duration-300 ease-in-out", scrolled ? "text-slate-600 transition-all duration-300 ease-in-out hover:bg-navy hover:text-white hover:scale-105 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]" : "text-slate-300 transition-all duration-300 ease-in-out hover:bg-white/10 hover:text-white hover:scale-105 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]", active && (scrolled ? "bg-blue-50 text-brand" : "bg-white/10 text-white"))}>
+              <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={cn("rounded-full px-3 py-2 text-[13px] font-semibold transition-all duration-300 ease-in-out hover:text-white hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]", scrolled ? "text-slate-600 hover:bg-navy" : "text-slate-300 hover:bg-white/10", active && (scrolled ? "bg-blue-50 text-brand" : "bg-white/10 text-white"))}>
                 {item.label}
               </Link>
             );
@@ -58,7 +58,7 @@ export function Header() {
             <div className="container-shell grid gap-1 py-5 sm:grid-cols-2">
               {navItems.map((item) => {
                 const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-                return <Link key={item.href} href={item.href} className={cn("rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 ease-in-out hover:bg-navy hover:text-white hover:scale-105 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]", active && "bg-blue-50 text-brand")}>{item.label}</Link>;
+                return <Link key={item.href} href={item.href} className={cn("rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 ease-in-out hover:bg-navy hover:text-white hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)]", active && "bg-blue-50 text-brand")}>{item.label}</Link>;
               })}
               <Button asChild className="mt-2 sm:col-span-2"><Link href="/contact">Start a project</Link></Button>
             </div>
