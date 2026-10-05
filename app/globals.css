@@ -157,6 +157,33 @@ img {
   50% { transform: scale(1.45); opacity: 0.25; }
 }
 
+.footer-particles {
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.42) 1px, transparent 1.5px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  opacity: 0.16;
+  animation: footer-particle-drift 24s linear infinite;
+}
+
+.footer-wave {
+  animation: footer-wave-float 14s ease-in-out infinite;
+}
+
+.footer-wave-delayed {
+  animation-delay: -7s;
+  opacity: 0.65;
+}
+
+@keyframes footer-particle-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(32px, -24px, 0); }
+}
+
+@keyframes footer-wave-float {
+  0%, 100% { transform: translate3d(-1.5%, 0, 0) scaleY(1); }
+  50% { transform: translate3d(1.5%, -12px, 0) scaleY(1.035); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
