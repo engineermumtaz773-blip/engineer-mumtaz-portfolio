@@ -126,7 +126,7 @@ export function Hero() {
             aria-hidden="true"
             animate={{ y: [0, -7, 0], scale: [1, 1.1, 1], opacity: [0.55, 0.85, 0.55] }}
             transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute left-[calc(50%+125px)] top-[calc(50%-150px)] z-10 h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_16px_#67e8f9] sm:left-[calc(50%+165px)] sm:top-[calc(50%-190px)]"
+            className="pointer-events-none absolute right-8 top-8 z-10 h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_16px_#67e8f9] sm:right-10 sm:top-10"
           />
           
           <div className="absolute w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] rounded-full border border-cyan-500/20 animate-[spin_20s_linear_infinite] pointer-events-none" />
