@@ -143,11 +143,11 @@ export function Hero() {
             <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-900 border-4 border-navy">
                {/* Default profile image from the public root */}
                <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-0 scale-105 rotate-2' : 'opacity-100 scale-100 rotate-0'}`}>
-                 <Image src="/mumtaz-profilo.jpg" alt="Engineer Mumtaz Ali" fill priority className="object-cover" />
+                 <Image src="/images/hero-profile-ajrak.jpg" alt="Engineer Mumtaz Ali in Cultural Ajrak attire" fill priority className="object-cover" />
                </div>
                {/* Hover profile image from the public images folder */}
                <div className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 scale-105 rotate-2' : 'opacity-0 scale-100 rotate-0'}`}>
-                 <Image src="/images/profile.svg" alt="Engineer Mumtaz Ali Hover" fill priority className="object-cover" />
+                 <Image src="/images/hero-profile-blue.jpg" alt="Engineer Mumtaz Ali in a blue shirt" fill priority className="object-cover" />
                </div>
             </div>
           </m.div>
